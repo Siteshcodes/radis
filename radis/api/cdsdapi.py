@@ -66,7 +66,9 @@ columns_cdsdhitemp = OrderedDict(
         ("v3u", ("a2", int, "upper state vibrational number v3", "")),
         ("ru", ("a1", int, "upper state vibrational number r", "")),
         # skip 5 columns (v1l format becomes 3+5)
-        ("v1l", ("a8", int, "lower state vibrational number v1", "")),
+        # FIXED: Split 'a8' into 'a3' (v1l) and 'a5' (ignored)
+        ("v1l", ("a3", int, "lower state vibrational number v1", "")),
+        ("ignore_v1l", ("a5", int, "ignored", "")),
         ("v2l", ("a2", int, "lower state vibrational number v2", "")),
         ("l2l", ("a2", int, "lower state vibrational number l2", "")),
         ("v3l", ("a2", int, "lower state vibrational number v3", "")),
@@ -99,14 +101,18 @@ columns_4000 = OrderedDict(
         ("Tdpair", ("a4", float, "temperature-dependance exponent for Gamma air", "")),
         ("Pshft",("a8", float, "air pressure-induced line shift at 296K", "cm-1.atm-1")),
         # skip 1 columns  (Tdpsel becomes 4+1 = 5)
-        ("Tdpsel", ("a5", float, "temperature dependance exponent for gamma self", "")),
+        # FIXED: Split 'a5' into 'a4' (Tdpsel) and 'a1' (ignored)
+        ("Tdpsel", ("a4", float, "temperature dependance exponent for gamma self", "")),
+        ("ignore_Tdpsel", ("a1", float, "ignored", "")),
         ("v1u", ("a3", int, "upper state vibrational number v1", "")),
         ("v2u", ("a2", int, "upper state vibrational number v2", "")),
         ("l2u", ("a2", int, "upper state vibrational number l2", "")),
         ("v3u", ("a2", int, "upper state vibrational number v3", "")),
         ("ru", ("a2", int, "upper state vibrational number r", "")),
         # skip 5 columns (v1l format becomes 3+3=6)
-        ("v1l", ("a6", int, "lower state vibrational number v1", "")),
+        # FIXED: Split 'a6' into 'a3' (v1l) and 'a3' (ignored)
+        ("v1l", ("a3", int, "lower state vibrational number v1", "")),
+        ("ignore_v1l", ("a3", int, "ignored", "")),
         ("v2l", ("a2", int, "lower state vibrational number v2", "")),
         ("l2l", ("a2", int, "lower state vibrational number l2", "")),
         ("v3l", ("a2", int, "lower state vibrational number v3", "")),
